@@ -25,7 +25,7 @@
 
  */
 
-(function(jQuery) {
+define(['jquery', 'backbone', 'underscore'], function(jQuery, Backbone, _) {
   // Cached regex to split keys for `delegate`.
   var delegateEventSplitter = /^(\S+)\s*(.*)$/;
 
@@ -109,4 +109,4 @@
       this.undelegateHotkeyGlobalEvents();
     }
   });
-})(jQuery);
+});
