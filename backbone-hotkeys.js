@@ -25,7 +25,15 @@
 
  */
 
-define(['jquery', 'backbone', 'underscore'], function(jQuery, Backbone, _) {
+(function (root, factory) {
+    if (typeof define === 'function' && define.amd) {
+        // AMD. Register as an anonymous module.
+        define(['jquery', 'backbone', 'underscore', 'jquery-hotkeys'], factory);
+    } else {
+        // Browser globals
+        factory(root.jQuery, root.Backbone, root._);
+    }
+}(this, function (jQuery, Backbone, _) {
   // Cached regex to split keys for `delegate`.
   var delegateEventSplitter = /^(\S+)\s*(.*)$/;
 
@@ -109,4 +117,4 @@ define(['jquery', 'backbone', 'underscore'], function(jQuery, Backbone, _) {
       this.undelegateHotkeyGlobalEvents();
     }
   });
-});
+}));
